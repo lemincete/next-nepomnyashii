@@ -1,0 +1,12 @@
+.root {
+    padding: 10px 0;
+    border-top: 1px solid var(--font-color);
+    &__body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        span {
+            font-size: 16px;
+        }
+    }
+}

@@ -1,0 +1,35 @@
+$p-button: 3px;
+
+.root {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    column-gap: 10px;
+    &__switch {
+        width: 40px;
+        height: 20px;
+        background: var(--font-color);
+        border-radius: 10px;
+        position: relative;
+        cursor: pointer;
+        input {
+            display: none;
+        }
+        &__button {
+            top: 50%;
+            transform: translateY(-50%);
+            position: absolute;
+            width: 15px;
+            border-radius: 50%;
+            height: 15px;
+            background: var(--bg-color);
+            display: block;
+        }
+        input:not(:checked) + &__button {
+            right: $p-button;
+        }
+        input:checked + &__button {
+            left: $p-button;
+        }
+    }
+}
