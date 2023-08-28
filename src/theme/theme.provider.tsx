@@ -11,11 +11,15 @@ interface ThemeProviderProps {
 const ThemeProvider: FC<ThemeProviderProps> = ({ children }) => {
 
     const getThemes = () => {
-        const theme = `${localStorage.getItem('theme')}`;
-        if (Object.values(themes).includes(theme)) return theme
+        try {
+            const theme = `${localStorage.getItem('theme')}`;
+            if (Object.values(themes).includes(theme)) return theme
 
-        const userMatch = window.matchMedia('(prefers-color-scheme: light)')
-        if (userMatch.matches) return themes.light
+            const userMatch = window.matchMedia('(prefers-color-scheme: light)')
+            if (userMatch.matches) return themes.light
+        } catch (e) {
+
+        }
 
         return themes.dark
     }

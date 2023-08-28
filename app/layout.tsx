@@ -1,8 +1,8 @@
-import '@/src/styles/index.scss';
+import '@/styles/index.scss';
 import type { Metadata } from 'next';
 import { Titillium_Web } from 'next/font/google';
 
-import ThemeProvider from '@/src/theme/theme.provider';
+import ThemeProvider from '@/theme/theme.provider';
 
 const titillium = Titillium_Web({ subsets: ['latin'], weight: ['400', '600', '900'] });
 

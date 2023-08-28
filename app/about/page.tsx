@@ -1,6 +1,6 @@
 import { NextPage } from "next";
 
-import About from "@/src/components/screens/about/About";
+import About from "@/components/screens/about/About";
 
 const AboutPage: NextPage = () => {
     return <About />

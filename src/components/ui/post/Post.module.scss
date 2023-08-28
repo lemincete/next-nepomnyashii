@@ -1,0 +1,20 @@
+.root {
+    border: 1px solid var(--font-color);
+    padding: 10px;
+    border-radius: 5px;
+    &__title {
+        font-size: 18px;
+        font-weight: 600;
+        color: var(--font-color);
+        margin-bottom: 5px;
+        &::first-letter {
+            text-transform: uppercase;
+        }
+    }
+    a {
+        color: var(--font-color);
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}

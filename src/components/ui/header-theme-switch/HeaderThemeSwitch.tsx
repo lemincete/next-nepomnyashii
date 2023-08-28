@@ -1,6 +1,6 @@
 'use client'
 
-import { useThemeContext } from '@/src/theme/useThemeContext';
+import { useThemeContext } from '@/theme/useThemeContext';
 
 import styles from './HeaderThemeSwitch.module.scss';
 
