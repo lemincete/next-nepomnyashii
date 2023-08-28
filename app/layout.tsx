@@ -2,7 +2,7 @@ import '@/styles/index.scss';
 import type { Metadata } from 'next';
 import { Titillium_Web } from 'next/font/google';
 
-import ThemeProvider from '@/theme/theme.provider';
+import Providers from '@/providers/Providers';
 
 const titillium = Titillium_Web({ subsets: ['latin'], weight: ['400', '600', '900'] });
 
@@ -19,9 +19,9 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body data-theme="dark" className={titillium.className}>
-        <ThemeProvider>
+        <Providers>
           {children}
-        </ThemeProvider>
+        </Providers>
       </body>
     </html>
   )

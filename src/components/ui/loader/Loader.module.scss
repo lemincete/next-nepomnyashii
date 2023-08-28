@@ -1,9 +1,5 @@
 .root {
-    display: flex;
-    justify-content: center;
-    &__image {
-        animation: loading 3s linear;
-    }
+    animation: loading 3s linear;
 }
 
 @keyframes loading {

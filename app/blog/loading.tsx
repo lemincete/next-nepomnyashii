@@ -1,7 +1,7 @@
-import Loader from "@/components/ui/loader/Loader";
+import LoadingBlock from "@/components/ui/loading-block/LoadingBlock";
 
 const Loading = () => {
-    return <Loader />
+    return <LoadingBlock />
 }
 
 export default Loading;

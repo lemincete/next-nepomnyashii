@@ -1,6 +1,6 @@
 import styles from './Header.module.scss';
 
-import Link from 'next/link';
+import Navigation from '@/components/ui/navigation/Navigation';
 import HeaderThemeSwitch from '../../ui/header-theme-switch/HeaderThemeSwitch';
 
 
@@ -9,19 +9,7 @@ const Header = () => {
         <header className={styles.root}>
             <div className='container'>
                 <div className={styles.root__body}>
-                    <nav className={styles.root__menu}>
-                        <ul className={styles.root__menu__list}>
-                            <li className={styles.root__menu__item}>
-                                <Link href="/">Home</Link>
-                            </li>
-                            <li className={styles.root__menu__item}>
-                                <Link href="/about">About</Link>
-                            </li>
-                            <li className={styles.root__menu__item}>
-                                <Link href="/blog">Blog</Link>
-                            </li>
-                        </ul>
-                    </nav>
+                    <Navigation />
                     <div className={styles.root__theme__body}>
                         <HeaderThemeSwitch />
                     </div>

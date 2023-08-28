@@ -1,0 +1,13 @@
+.root {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+    &__input {
+        border: 1px solid var(--font-color);
+        background: var(--bg-color);
+        border-radius: 5px;
+        padding: 5px;
+        color: var(--font-color);
+        min-width: 300px;
+    }
+}

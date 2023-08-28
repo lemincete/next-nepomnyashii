@@ -1,0 +1,18 @@
+.root {
+    &__list {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        column-gap: 20px;
+        a {
+            color: var(--font-color);
+            font-size: 20px;
+        }
+    }
+    &__item_active {
+        text-decoration: underline;
+        a {
+            font-weight: 600;
+        }
+    }
+}

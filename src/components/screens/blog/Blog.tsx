@@ -1,40 +1,43 @@
-import styles from './Blog.module.scss';
+'use client'
+
+import { useState, useRef, useEffect } from 'react';
 
 import Layout from "../../layout/Layout";
 
-import { IPost } from '@/interfaces/post.interface';
-import Post from "../../ui/post/Post";
+import SearchInput from '@/components/ui/search-input/SearchInput';
+import BlogBody from '@/components/ui/blog-body/BlogBody';
+import BlogLoading from '@/components/ui/blog-loading/BlogLoading';
 
-const fetchPosts = async (): Promise<IPost[]> => {
-    const response = await fetch('https://jsonplaceholder.typicode.com/posts', {
-        next: {
-            revalidate: 60
-        }
-    });
+import { QueryClientHoc } from '@/components/hocs/query-client-hoc/QueryClientHoc';
 
-    if (!response.ok) {
-        throw new Error('Unable fetch posts')
-    }
+import { useFetchPosts } from './queries';
 
-    return response.json();
-}
 
-const Blog = async () => {
+const Blog = () => {
 
-    const posts = await fetchPosts();
+    const [search, setSearch] = useState<string>('');
+
+    const { data, isLoading } = useFetchPosts(search);
+
+    const isSearch = useRef(false);
+
+    useEffect(() => {
+        isSearch.current = true;
+    }, [])
 
     return (
         <Layout>
-            <section className={styles.root__list}>
-                {posts.length > 0
-                    ? posts.map(post =>
-                        <Post {...post} key={post.id} />
-                    )
+            {isLoading
+                ? <BlogLoading />
+                : data
+                    ? <>
+                        <SearchInput setSearch={setSearch} />
+                        <BlogBody isSearch={isSearch.current} posts={data} />
+                    </>
                     : <h3>Posts not found</h3>
-                }
-            </section>
+            }
         </Layout>
     );
 }
 
-export default Blog;
+export default QueryClientHoc(Blog);

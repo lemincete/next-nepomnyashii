@@ -2,22 +2,14 @@ import { NextPage } from 'next';
 
 import BlogItem from '@/components/screens/blog-item/BlogItem';
 
-import { IPost } from '@/interfaces/post.interface';
+import { PostServices } from '@/services/post.service';
 
-import { createMetadata } from '@/utils/createMetadata';
+import { createMetadata } from '@/helpers/createMetadata';
 
 
-const fetchPost = async (id: string): Promise<IPost> => {
-    const response = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`, {
-        next: {
-            revalidate: 60
-        }
-    });
-    return response.json();
-}
 
 export const generateMetadata = async ({ params: { id } }: { params: { id: string } }) => {
-    const post = await fetchPost(id);
+    const post = await PostServices.getPostById(id);
 
     return createMetadata(post.title, post.title);
 }
@@ -30,7 +22,7 @@ interface BlogItemPageProps {
 
 const BlogItemPage: NextPage<BlogItemPageProps> = async ({ params: { id } }) => {
 
-    const post = await fetchPost(id);
+    const post = await PostServices.getPostById(id);
 
     return <BlogItem {...post} />
 }

@@ -1,0 +1,15 @@
+.root {
+    &__list {
+        display: flex;
+        flex-direction: column;
+        row-gap: 10px;
+        &__empty {
+            display: flex;
+            justify-content: center;
+            &__title {
+                font-size: 18px;
+                font-weight: 600;
+            }
+        }
+    }
+}
