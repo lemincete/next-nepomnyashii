@@ -1,12 +1,16 @@
 import { IPost } from "@/interfaces/post.interface";
+import { $api } from "@/helpers/$api";
 
 export class PostServices {
     static async getPosts(search: string): Promise<IPost[]> {
-        const searchParams = search ? `q=${search}` : ''
 
-        const response = await fetch(`${process.env.API_URL}/posts/?${searchParams}`);
+        const { data } = await $api<IPost[]>('/posts', {
+            params: {
+                q: search
+            }
+        });
 
-        return response.json();
+        return data
     }
 
     static async getPostById(id: string): Promise<IPost> {

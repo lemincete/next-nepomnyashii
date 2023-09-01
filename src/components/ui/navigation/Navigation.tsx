@@ -10,7 +10,6 @@ import { navigationLinksArr } from './navigation.data';
 const Navigation = () => {
 
 
-
     const pathname = usePathname();
 
     return (

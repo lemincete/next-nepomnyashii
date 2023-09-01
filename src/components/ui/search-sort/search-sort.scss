@@ -1,0 +1,41 @@
+.css-13cymwt-control,
+.css-1n6sfyn-MenuList,
+.css-t3ipsp-control {
+    background: var(--bg-color) !important;
+    border: 1px solid var(--font-color) !important;
+    box-shadow: none !important;
+}
+
+.css-1n6sfyn-MenuList {
+    padding: 0 !important;
+}
+
+.css-1nmdiq5-menu {
+    top: 90% !important;
+}
+
+.css-1u9des2-indicatorSeparator {
+    background: var(--font-color) !important;
+}
+
+.css-tr4s17-option,
+.css-d7l1ni-option {
+    background: var(--bg-color) !important;
+    color: var(--font-color) !important;
+    cursor: pointer !important;
+}
+
+.css-tj5bde-Svg {
+    fill: var(--font-color) !important;
+}
+
+.css-1dimb5e-singleValue,
+.css-1jqq78o-placeholder {
+    color: var(--font-color) !important;
+}
+
+@media (max-width: 520px) {
+    .search-sort-select {
+        width: 100%;
+    }
+}

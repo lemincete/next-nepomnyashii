@@ -13,17 +13,20 @@ interface BlogBodyProps {
 }
 
 const BlogBody: FC<BlogBodyProps> = ({ isSearch, posts }) => {
+
+    if (!isSearch) {
+        return <></>
+    }
+
     return (
         <section className={styles.root__list}>
-            {isSearch &&
-                <>{posts.length > 0
-                    ? posts.map(post =>
-                        <Post {...post} key={post.id} />
-                    )
-                    : <div className={styles.root__list__empty}>
-                        <h3 className={styles.root__list__empty__title}>Posts not found =(</h3>
-                    </div>
-                }</>
+            {posts.length > 0
+                ? posts.map(post =>
+                    <Post {...post} key={post.id} />
+                )
+                : <div className={styles.root__list__empty}>
+                    <h3 className={styles.root__list__empty__title}>Posts not found =(</h3>
+                </div>
             }
         </section>
     );
