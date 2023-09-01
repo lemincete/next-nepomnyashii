@@ -18,5 +18,10 @@
 body {
     background: var(--bg-color);
     color: var(--font-color);
+}
+
+header,
+main,
+footer {
     padding: 0 15px;
 }

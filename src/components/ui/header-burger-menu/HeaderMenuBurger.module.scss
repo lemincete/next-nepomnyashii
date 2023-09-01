@@ -1,0 +1,54 @@
+.root {
+    display: none;
+    @media (max-width: 550px) {
+        display: block;
+    }
+    &__body {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        &__icon {
+            padding: 15px;
+            span {
+                width: 30px;
+                height: 3px;
+                background: var(--font-color);
+                display: block;
+                position: relative;
+                &::after,
+                &::before {
+                    content: "";
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    width: 30px;
+                    height: 3px;
+                    background: var(--font-color);
+                }
+                &::before {
+                    top: -10px;
+                }
+                &:after {
+                    top: 10px;
+                }
+            }
+        }
+        &__logo {
+            font-weight: 900;
+            font-size: 25px;
+        }
+        &_open_flag {
+            display: none;
+            &:checked + .root__body__icon span {
+                rotate: -45deg;
+                &::before {
+                    rotate: 92deg;
+                    top: 0;
+                }
+                &::after {
+                    display: none;
+                }
+            }
+        }
+    }
+}
